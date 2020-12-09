@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/doctor/save}" th:object="${doctor}">
+    <th:block th:text="*{setId(-1)}"/>
+    <input type="hidden" th:field="*{id}">
+    <p>Специализация:</p>
+    <select size="3" th:field="*{specialization}">
+        <option th:each="spec : ${specs}" th:value="${spec.name}" th:text="${spec.name}"></option>
+    </select>
+    <p>Фамилия:</p>
+    <input type="text" name="LastName" th:field="*{lastName}">
+    <p>Имя:</p>
+    <input type="text" name="FirstName" th:field="*{firstName}">
+    <p>Отчество:</p>
+    <input type="text" name="MiddleName" th:field="*{middleName}">
+    <p>Год рождения:</p>
+    <input type="text" name="Birthdate" th:field="*{birthdate}">
+    <p>Год приёма на работу:</p>
+    <input type="text" name="EmploymentDate" th:field="*{employmentDate}">
+    <p>Номер отдела:</p>
+    <input type="text" name="SectionId" th:field="*{sectionId}">
+    <input style="border-radius: 10px; background-color: #ffffff;" type="submit" value="Submit"/>
+</form>
+<form th:action="@{/}">
+    <input style="border-radius: 10px; background-color: #ffffff;" type="submit" value="Back"/>
+</form>
+</body>
+</html>

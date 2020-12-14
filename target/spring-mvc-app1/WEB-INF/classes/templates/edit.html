@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" th:action="@{/specialization/save}" th:object="${newSpecialization}">
+        <input type="hidden" th:field="*{id}" th:value="${specialization != null} ? ${specialization.getId()} : -1">
+        <P>Наименование специализации:<input type="text" th:field="*{name}" th:value="${specialization != null} ? ${specialization.getName()} : ''"> </P>
+        <P><input type="checkbox" th:field="*{narrow}" th:checked="${specialization != null} ? ${specialization.isNarrow()} : false">Является ли узкой специальность</P>
+        <P>Ставка заработной платы:<input type="text" th:field="*{wageRate}" th:value="${specialization != null} ? ${specialization.getWageRate()} : ''"></P>
+        <input style="border-radius: 10px; background-color: #ffffff;" type="submit" value="Submit"/>
+    </form>
+    <form th:action="@{/}">
+        <input style="border-radius: 10px; background-color: #ffffff;" type="submit" value="Back"/>
+    </form>
+</body>
+</html>

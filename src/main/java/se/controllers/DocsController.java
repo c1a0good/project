@@ -39,6 +39,7 @@ public class DocsController {
         Collection<Specialization> beans = SpecializationsRepository.readAll();
         ArrayList<Specialization>  specs = new ArrayList<>(beans);
         Collections.sort(specs);
+        model.addAttribute("specialization", specialization);
         model.addAttribute("specs", specs);
         model.addAttribute("doctor",  doctors.get(id - 1));
         return "editDocs";
@@ -50,6 +51,7 @@ public class DocsController {
         Collection<Specialization> beans = SpecializationsRepository.readAll();
         ArrayList<Specialization>  specs = new ArrayList<>(beans);
         Collections.sort(specs);
+        model.addAttribute("specialization", specialization);
         model.addAttribute("specs", specs);
         model.addAttribute("doctor", newDoctor);
         return "createDocs";

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: c1a0
+Build-Jdk: 15
+Implementation-Title: course_projectTRIS
+Implementation-Version: 1.0-SNAPSHOT
+Implementation-Vendor-Id: org.example
+Main-Class: ${start-class}
+

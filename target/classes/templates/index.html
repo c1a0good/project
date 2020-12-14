@@ -48,7 +48,7 @@
         <TD th:utext="${specialization.getCosts()}"></TD>
     </TR>
 </TABLE>
-<form th:action="@{/}">
+<form method="get" th:action="@{/specializations/create}">
     <input style="padding-left: 10px" class="btn btn-outline-danger" type="submit" value="Create"/>
 </form>
 </body>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+    <STYLE>
+        TABLE {
+            border-collapse: collapse;
+        }
+        TH, TD {
+            border: 1px solid black;
+            padding: 5px 30px 5px 10px;
+        }
+    </STYLE>
+</head>
+<body>
+    <TABLE>
+        <TR>
+            <TH>&nbsp;</TH>
+            <TH>Наименование специализации</TH>
+            <TH>Является ли специальность узкой</TH>
+            <TH>Количество врачей данной специальности</TH>
+            <TH>Ставка заработной платы</TH>
+            <TH>Сумма затрат на оплату зарплаты врачам</TH>
+        </TR>
+            <TR th:each="specialization, iter : ${specializations}">
+                <TD>
+                    <form th:method="DELETE" th:action="@{/specializations/{id}(id=${specialization.getId()})}">
+                        <input style="
+                    border-radius: 10px; background-color: #007BFF;" type="submit" value="Delete"/>
+                    </form>
+                </TD>
+                <TD>
+                    <form th:method="PATCH" th:action="@{/specializations/{id}(id=${iter.count})}">
+                        <input style="
+                    border-radius: 10px; background-color: #007BFF;" type="submit" th:value="${specialization.getName()}"/>
+                    </form>
+                </TD>
+                <TD th:utext="${specialization.isNarrow()}"></TD>
+                <TD>
+                    <form th:method="EDIT" th:action="@{/doctors/{id}(id=${specialization.getId()})}">
+                        <input style="
+                    border-radius: 10px; background-color: #007BFF;" type="submit" th:value="${specialization.getAmountOfDocs()}"/>
+                    </form>
+                </TD>
+                <TD th:utext="${specialization.getWageRate()}"></TD>
+                <TD th:utext="${specialization.getCosts()}"></TD>
+            </TR>
+    </TABLE>
+    <form method="get" th:action="@{/specializations/create}">
+        <input style="
+                    border-radius: 10px; background-color: #007BFF;" type="submit" value="Create"/>
+    </form>
+</body>
+</html>

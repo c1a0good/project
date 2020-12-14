@@ -31,7 +31,7 @@
     <input class="btn btn-outline-danger"  type="submit" value="Submit"/>
 </form>
     <div style="position: absolute; top:624px;left: 150px">
-    <form th:action="@{/}">
+    <form th:method="get" th:action="@{/doctor/{id}(id = ${specialization.getId()})}">
         <input class="btn btn-outline-danger"  type="submit" value="Back"/>
     </form>
     </div>
